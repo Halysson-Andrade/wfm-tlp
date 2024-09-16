@@ -50,9 +50,7 @@ export class ChangePasswordComponent {
             this.isLoading = false;
             sessionStorage.removeItem('old_password');
             this.toastr.success('Senha alterada com sucesso!');
-            const newToken = response.data.token;
-            sessionStorage.setItem('auth_token', newToken);
-            this.router.navigate(['/home']);
+            this.router.navigate(['/permissions']);
           },
           error: (err: any) => {
             this.isLoading = false;

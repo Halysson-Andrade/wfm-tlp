@@ -6,14 +6,14 @@ import { HomeComponent } from './pages/home/home.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { LoginGuard } from './core/guard/login.guard';
+import { LayoutComponent } from './layout/layout.component';
+import { UserComponent } from './pages/user/user.component';
+import { MenuComponent } from './pages/menu/menu.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { PermissionComponent } from './pages/permission/permission.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard],
-  },
   {
     path: 'troca-de-senha',
     component: ChangePasswordComponent,
@@ -23,8 +23,31 @@ const routes: Routes = [
     path: 'recuperar-senha',
     component: ForgotPasswordComponent,
   },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', redirectTo: '/home' },
+  {
+    path: '',
+    component: LayoutComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'permissions',
+        component: PermissionComponent,
+      },
+      {
+        path: 'profiles',
+        component: ProfileComponent,
+      },
+      {
+        path: 'menus',
+        component: MenuComponent,
+      },
+      {
+        path: 'users',
+        component: UserComponent,
+      },
+      { path: '', redirectTo: 'permissions', pathMatch: 'full' },
+    ],
+  },
+  { path: '**', redirectTo: '/permissions' },
 ];
 
 @NgModule({

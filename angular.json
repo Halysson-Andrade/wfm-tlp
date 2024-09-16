@@ -24,7 +24,10 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["node_modules/ngx-toastr/toastr.css", "src/styles/main.scss"],
+            "styles": [
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles/main.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -51,6 +54,7 @@
             },
             "development": {
               "buildOptimizer": false,
+              "aot": true,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
@@ -80,6 +84,13 @@
               ]
             },
             "vexia": {
+              "buildOptimizer": false,
+              "aot": true,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true,
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -108,6 +119,22 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/clients/client-adeste/environment.adeste.prod.ts"
+                }
+              ]
+            },
+            "apple": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/clients/client-apple/environment.apple.ts"
+                }
+              ]
+            },
+            "apple-prod": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/clients/client-apple/environment.apple.prod.ts"
                 }
               ]
             }
@@ -140,6 +167,12 @@
             },
             "adeste-prod": {
               "buildTarget": "projeto-front-tlp:build:adeste-prod"
+            },
+            "apple": {
+              "buildTarget": "projeto-front-tlp:build:apple"
+            },
+            "apple-prod": {
+              "buildTarget": "projeto-front-tlp:build:apple-prod"
             }
           },
           "defaultConfiguration": "development"
@@ -157,7 +190,10 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["node_modules/ngx-toastr/toastr.css", "src/styles/main.scss"],
+            "styles": [
+              "node_modules/ngx-toastr/toastr.css",
+              "src/styles/main.scss"
+            ],
             "scripts": []
           }
         }

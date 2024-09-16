@@ -1,0 +1,29 @@
+.layout {
+  display: flex;
+  height: 100%;
+  background-color: #FFF;
+
+  app-sidebar-menu {
+    width: 240px;
+    flex-shrink: 0;
+    background-color: #FFF;
+  }
+
+  .main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    app-top-menu {
+      background-color: #FFF;
+      height: 90px;
+      border-left: solid 1px #F7F8F9;
+    }
+
+    .content {
+      flex-grow: 1;
+      padding: 2rem;
+      background-color: #F7F8F9;
+    }
+  }
+}

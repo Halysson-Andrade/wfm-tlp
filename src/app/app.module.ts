@@ -14,6 +14,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ForgotPasswordModule } from './pages/forgot-password/forgot-password.module';
 import { HomeModule } from './pages/home/home.module';
+import { LayoutModule } from './layout/layout.module';
+import { PermissionModule } from './pages/permission/permission.module';
+import { MenuModule } from './pages/menu/menu.module';
+import { UserModule } from './pages/user/user.module';
+import { ProfileModule } from './pages/profile/profile.module';
 
 export function tokenGetter() {
   return sessionStorage.getItem('auth_token');
@@ -21,14 +26,19 @@ export function tokenGetter() {
 
 @NgModule({
   declarations: [AppComponent],
-  bootstrap: [AppComponent],
+
   imports: [
     BrowserModule,
     AppRoutingModule,
     LoginModule,
     HomeModule,
+    MenuModule,
+    UserModule,
+    ProfileModule,
+    PermissionModule,
     ChangePasswordModule,
     ForgotPasswordModule,
+    LayoutModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
@@ -44,5 +54,6 @@ export function tokenGetter() {
     }),
   ],
   providers: [provideHttpClient(withInterceptorsFromDi())],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

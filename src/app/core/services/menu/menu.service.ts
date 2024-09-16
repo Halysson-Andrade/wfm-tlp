@@ -5,17 +5,36 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class MenuService {
-  private menuItems = new BehaviorSubject<any[]>([]);
+  private menuLabelSource = new BehaviorSubject<string>('');
+  currentMenuLabel = this.menuLabelSource.asObservable();
 
-  get menu(): Observable<any[]> {
-    return this.menuItems.asObservable();
+  constructor() {}
+
+  changeMenuLabel(menuLabel: string) {
+    this.menuLabelSource.next(menuLabel);
   }
 
-  setMenu(items: any[]): void {
-    this.menuItems.next(items);
+  getMenuLabelByRoute(route: string): string {
+    const menus = this.getMenus();
+    const matchedMenu = menus.find((menu) => menu.mnu_routerlink === route);
+    return matchedMenu ? matchedMenu.mnu_label : '';
   }
 
-  clearMenu(): void {
-    this.menuItems.next([]);
+  getMenus(): any[] {
+    const menus = sessionStorage.getItem('menus');
+    if (menus) {
+      return JSON.parse(menus);
+    }
+    return [];
+  }
+
+  getParentMenus(): any[] {
+    const menus = this.getMenus();
+    return menus.filter((menu) => menu.mnu_parent === null);
+  }
+
+  getChildMenus(parentId: number): any[] {
+    const menus = this.getMenus();
+    return menus.filter((menu) => menu.mnu_parent === parentId);
   }
 }

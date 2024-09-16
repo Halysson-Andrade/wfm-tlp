@@ -1,0 +1,29 @@
+<div class="select-group" [ngClass]="{ 'select-row': isRow }">
+  <label *ngIf="label" [for]="id" class="select-label">{{ label }}</label>
+
+  <div class="custom-select-wrapper">
+    <select
+      [id]="id"
+      [formControl]="control"
+      class="select-control"
+      [required]="required"
+      (click)="toggleIcon()"
+      (change)="onSelectChange($event)"
+      [ngClass]="{ 'is-invalid': isInvalid }"
+    >
+      <option value="">{{ placeholder }}</option>
+
+      <option
+        *ngFor="let option of options"
+        [value]="option.value"
+        [selected]="option.value === selectedValue"
+      >
+        {{ option.name }}
+      </option>
+    </select>
+    <i
+      class="ph-bold ph-caret-down select-icon"
+      [ngClass]="{ open: isOpen }"
+    ></i>
+  </div>
+</div>
