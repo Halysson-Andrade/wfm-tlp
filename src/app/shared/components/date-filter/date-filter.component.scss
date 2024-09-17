@@ -1,0 +1,39 @@
+.date-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+
+  mat-form-field {
+    flex: 1;
+    max-width: 250px;
+
+    .mat-form-field-flex {
+      background-color: #fff;
+      color: #000;
+
+      input {
+        background-color: #fff;
+        color: #000;
+        border: 1px solid #ccc;
+        cursor: pointer;
+      }
+    }
+
+    .mat-form-field-underline {
+      background-color: #000;
+    }
+
+    .mat-form-field-label {
+      color: #000;
+    }
+  }
+
+  button {
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    height: 56px;
+    padding: 0 16px;
+  }
+}

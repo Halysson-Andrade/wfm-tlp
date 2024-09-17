@@ -11,6 +11,7 @@ import { UserComponent } from './pages/user/user.component';
 import { MenuComponent } from './pages/menu/menu.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { PermissionComponent } from './pages/permission/permission.component';
+import { ChartsComponent } from './pages/charts/charts.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
@@ -43,6 +44,11 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserComponent,
+      },
+      //Paginas criadas por Halysson
+      {
+        path: 'charts',
+        component: ChartsComponent,
       },
       { path: '', redirectTo: 'permissions', pathMatch: 'full' },
     ],

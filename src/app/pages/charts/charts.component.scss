@@ -1,0 +1,86 @@
+/* Container principal para o layout */
+.permission-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Container do cabeçalho da página */
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Container para os inputs e botão de filtro */
+.filter-container {
+  display: flex;
+  gap: 30px;
+}
+
+/* Estilo para os inputs de data */
+.date-filter input[type="text"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 150px;
+  /* Remover o margin se estiver definido e usar o gap para o espaçamento */
+  /* margin-right: 10px; */
+}
+
+/* Estilo para o botão "Gerar Gráficos" */
+.date-filter button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff; /* Cor primária */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover e foco do botão */
+.date-filter button:hover,
+.date-filter button:focus {
+  background-color: #0056b3; /* Cor secundária */
+}
+
+/* Container do corpo da página */
+.page-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Seção dos gráficos */
+.charts-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Container para cada gráfico */
+.chart-container {
+  flex: 1 1 calc(50% - 20px); /* Permite 2 gráficos por linha com espaçamento */
+  box-sizing: border-box;
+  height: 400px; /* Ajuste a altura conforme necessário */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Títulos dos gráficos */
+.chart-container h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Estilo para os gráficos */
+.chart {
+  height: 100%; /* Ajusta a altura do gráfico para preencher o container */
+}

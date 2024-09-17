@@ -1,0 +1,71 @@
+<app-loading [isLoading]="isLoading"></app-loading>
+
+<div class="permission-page">
+  <div class="page-header">
+    <div class="filter-container">
+      <!-- Inputs de data diretamente no HTML -->
+      <div class="date-filter">
+        <input type="text" [value]="startDateInput" (input)="onStartDateInput($event)" placeholder="Data Início"
+          maxlength="10" pattern="\d{2}/\d{2}/\d{4}" title="Digite a data no formato DD/MM/YYYY">
+        <input type="text" [value]="endDateInput" (input)="onEndDateInput($event)" placeholder="Data Fim" maxlength="10"
+          pattern="\d{2}/\d{2}/\d{4}" title="Digite a data no formato DD/MM/YYYY">
+        <button (click)="applyFilter()">Gerar Gráficos</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-body">
+    <section>
+      <!-- Gráficos -->
+      <div class="charts-section">
+
+        <div class="chart-container">
+          <p class="chart-title">Resumo processamento</p>
+          <div echarts [options]="chartPieSumary" class="charts-pie" (chartInit)="onChartInit($event, 'pieSumary')">
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <p class="chart-title">Dias localizados neste processamento</p>
+          <div echarts [options]="chartPiedays" class="charts-pie" (chartInit)="onChartInit($event, 'pieDays')"></div>
+        </div>
+
+        <div class="chart-container">
+          <p class="chart-title">Alocação folha de pagamento</p>
+          <div echarts [options]="chartBarSumary" class="charts-bar" (chartInit)="onChartInit($event, 'barSumary')">
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <p class="chart-title">Alocação por gestão</p>
+          <div echarts [options]="chartBarBoss" class="charts-bar" (chartInit)="onChartInit($event, 'barBoss')"></div>
+        </div>
+
+        <div class="chart-container">
+          <p class="chart-title">Custo com combustivel</p>
+          <div echarts [options]="chartPiePetrol" class="charts-pie" (chartInit)="onChartInit($event, 'piePetrol')">
+          </div>
+        </div>
+
+        <div class="chart-container">
+          <p class="chart-title">Tempo das Tasks</p>
+          <div echarts [options]="chartLineTsk" class="charts-pie" (chartInit)="onChartInit($event, 'pieKm')"></div>
+        </div>
+
+        <div class="chart-container">
+          <p class="chart-title">Curva de atendimento (Abertura e fechamento TSK)</p>
+          <div echarts [options]="chartTimeLine" class="charts-pie" (chartInit)="onChartInit($event, 'pieKm')"></div>
+        </div>
+
+        <div class="chart-container">
+          <p class="chart-title">Curva de entrada e saída de usuários</p>
+          <div echarts [options]="chartLineProt" class="charts-pie" (chartInit)="onChartInit($event, 'pieKm')"></div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  <div class="page-footer">
+    <!-- Rodapé -->
+  </div>
+</div>

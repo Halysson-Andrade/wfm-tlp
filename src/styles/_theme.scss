@@ -8,6 +8,10 @@ $themes: ('tlp': (primary-color: #BF0B1A,
   ),
   'adeste': (primary-color: #F24452,
     secondary-color: #03A6A6,
+  ),
+  'default': (primary-color: #04b998,
+    secondary-color: #bcc1c5,
+    
   ));
 
 @function theme-color($theme, $color) {

@@ -1,7 +1,7 @@
 export const environment = {
   production: true,
-  apiURL: 'https://render-vexia.onrender.com/standard/prod/api/v1',
-  apiDomain: 'https://render-vexia.onrender.com',
+  apiURL: 'http://localhost:3000/standard/prod/api/v1',
+  apiDomain: 'http://localhost:3000',
   authRoute: '/standard/prod/api/v1/login',
   clientName: 'Tlp',
   clientLogo: 'assets/clients/client-tlp/logo.png',
